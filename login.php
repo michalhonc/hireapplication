@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="cs">
 
@@ -19,7 +22,6 @@
   </head>
 
   <body>
-
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
       <!-- header -->
@@ -28,20 +30,20 @@
 
           <!-- logo -->
           <span class="title mdl-layout-title">
-            <a href="index.html"><img class="logo-image" src="images/logo.png" alt="logo"></a>
+            <a href="index.php"><img class="logo-image" src="images/logo.png" alt="logo"></a>
           </span>
 
           <!-- menu -->
           <div class="navigation-container">
             <nav class="navigation mdl-navigation">
 
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Domů</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.php">Domů</a>
 
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="offers.html">Nabídky</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="offers.php">Nabídky</a>
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
 
-              <a class="menu_item-selected mdl-navigation__link mdl-typography--text-uppercase" href="login.html">Přihlásit se</a>
+              <a class="menu_item-selected mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>
 
             </nav>
           </div>
@@ -81,13 +83,36 @@
                   <button aria-label="Vytvorit">Vytvořit</button>
                   <p class="message">Už máte účet? <a href="#">Přihlásit se</a></p>
                 </form>
-                <form class="login-form">
-                  <input type="text" placeholder="Přihlašovací jméno"/>
-                  <input type="password" placeholder="Heslo"/>
+                <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                  <input name="login" type="text" placeholder="Přihlašovací jméno"/>
+                  <input name="password" type="password" placeholder="Heslo"/>
                   <button aria-label="prihlasit">Přihlásit</button>
                   <p class="message">Nejste registrováni? <a href="#">Vytvořit účet</a></p>
                 </form>
               </div>
+              <?php
+              // TODO: XSS
+                // include "./connect.php";
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                  $login = $_POST["login"];
+                  $password = $_POST["password"];
+                  $md5password = md5($password);
+                  // $dotaz = mysql_query("select * from uzivatele where login = '$login' and password = '$md5password'");
+                  // $overeni = mysql_num_rows($dotaz);
+                  // $row = mysql_fetch_array($dotaz);
+                  // if($overeni == 1) {
+                  if($login === "admin" && $password === "admin") {
+                    session_start();
+                    $_SESSION['login'] = stripslashes($login); 
+                    // $_SESSION['id'] = $row["id"];
+                    $_SESSION['id'] = $login;
+                    header("Location: admin.php");
+                    die();
+                  } else {
+                    echo "Pal do piče!";
+                  }
+                }
+              ?>
 
             </div>
 
@@ -110,7 +135,7 @@
           </div>
 
           <div class="mdl-mega-footer--bottom-section">
-            <a class="link mdl-typography--font-light" href="conditions.html">Všeobecné podmínky</a>
+            <a class="link mdl-typography--font-light" href="conditions.php">Všeobecné podmínky</a>
           </div>
 
         </footer>

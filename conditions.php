@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="cs">
 
@@ -28,20 +31,26 @@
 
           <!-- logo -->
           <span class="title mdl-layout-title">
-            <a href="index.html"><img class="logo-image" src="images/logo.png" alt="logo"></a>
+            <a href="indexd.php"><img class="logo-image" src="images/logo.png" alt="logo"></a>
           </span>
 
           <!-- menu -->
           <div class="navigation-container">
             <nav class="navigation mdl-navigation">
 
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Domů</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="indexd.php">Domů</a>
 
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="offers.html">Nabídky</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="offersd.php">Nabídky</a>
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
 
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.html">Přihlásit se</a>
+              <?php
+                  if($_SESSION['login']!=""){
+                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="admin.php">' . $_SESSION['login'] . '</a>';
+                  } else {
+                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
+                  }
+              ?>
 
             </nav>
           </div>
@@ -125,7 +134,7 @@
           </div>
 
           <div class="mdl-mega-footer--bottom-section">
-            <a class="link mdl-typography--font-light" href="conditions.html">Všeobecné podmínky</a>
+            <a class="link mdl-typography--font-light" href="conditionsd.php">Všeobecné podmínky</a>
           </div>
 
         </footer>

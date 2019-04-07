@@ -45,12 +45,15 @@
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="offers.php">Nabídky</a>
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
+
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>
+
               <?php
-                  if($_SESSION['login']!=""){
-                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="admin.php">' . $_SESSION['login'] . '</a>';
-                  } else {
-                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
-                  }
+                if($_SESSION['login']!=""){
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">' . $_SESSION['login'] . '</a>';
+                } else {
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
+                }
               ?>
               
 

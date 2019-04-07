@@ -45,8 +45,10 @@
                       <a class="mdl-navigation__link mdl-typography--text-uppercase" href="offers.php">Nabídky</a>
   
                       <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
+
+                      <a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>
                       
-                      <a class="mdl-navigation__link mdl-typography--text-uppercase" href="logout.php">Odhlásit se</a>
+                      <a class="mdl-navigation__link mdl-typography--text-uppercase" href="php/logout.php">Odhlásit se</a>
                       </nav>
                   </div>
                 </div>
@@ -57,11 +59,11 @@
                   <section class="contact mdl-grid">
                       <h2>Nová pracovní nabídka</h2>
                       <div class="mdl-grid">                                
-                        <form action="php/addOffer.php" method="post">
+                        <form action="php/addOffer.php" method="post" id="add-form">
                             <div class="mdl-grid">     
                             
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                  <input class="mdl-textfield__input" type="text" name="job">
+                                  <input class="mdl-textfield__input" type="text" name="job" required>
                                   <label class="mdl-textfield__label" for="job">Pracovní pozice</label>
                                 </div>
                                 
@@ -117,7 +119,7 @@
                                 </div>
                                 
                                 <input type="submit" class="contact-btn mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-button mdl-js-button mdl-button--raised"
-                                aria-label="odeslat">
+                                aria-label="odeslat" id="submit-button">
                             </div>
                         </form>
                       </div>
@@ -126,11 +128,32 @@
                 </div>
             </div>
 
-
-
-    
     <!-- js -->
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+    <!-- enable submit button only if form valid -->
+    <script>
+      $(function() {
+
+        $('#add-form input, #add-form textarea').keyup(function(){
+          $('#add-form').validate({
+            errorPlacement: function(error,element) {
+              return true;
+            }
+          });
+
+          if ($('#add-form').valid()) {
+            $("#submit-button").css({"opacity": "1", "pointer-events": "all"});
+          } else {
+            $("#submit-button").css({"opacity": "0.4", "pointer-events": "none"});
+          }
+
+        });
+
+      });
+    </script>
     
     </body>
 

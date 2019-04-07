@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
   </head>
 
@@ -46,12 +45,14 @@
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
 
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>
+
               <?php
-                  if($_SESSION['login']!=""){
-                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="admin.php">' . $_SESSION['login'] . '</a>';
-                  } else {
-                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
-                  }
+                if($_SESSION['login']!=""){
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">' . $_SESSION['login'] . '</a>';
+                } else {
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
+                }
               ?>
 
             </nav>

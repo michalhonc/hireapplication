@@ -44,12 +44,14 @@
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
 
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>
+
               <?php
-                  if($_SESSION['login']!=""){
-                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="admin.php">' . $_SESSION['login'] . '</a>';
-                  } else {
-                    echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
-                  }
+                if($_SESSION['login']!=""){
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">' . $_SESSION['login'] . '</a>';
+                } else {
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
+                }
               ?>
 
             </nav>
@@ -163,9 +165,34 @@
 
       </div>
     </div>
+
+    <div id="status">
+      <span id="status-text">Nabídka práce byla úspěšně vytvořena.</span>
+    </div>
     
     <!-- js -->
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- handles status div -->
+    <script>
+      $(function() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has('status') && urlParams.get('status') == 0) {
+          $('#status').slideDown();
+        }
+
+        // wait 5 second then hide status bar
+        setTimeout(
+          function() {
+            $('#status').slideUp();
+          },
+          5000
+        );
+
+      });
+    </script>
 
   </body>
 

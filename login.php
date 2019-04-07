@@ -43,6 +43,8 @@
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
 
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>
+
               <a class="menu_item-selected mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>
 
             </nav>

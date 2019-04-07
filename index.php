@@ -102,101 +102,8 @@
 
           <div class="section-title mdl-typography--display-1-color-contrast">Nejžhavější pracovní nabídky</div>
 
-          <div class="card-container mdl-grid owl-carousel">
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-1.png" alt="karta 1">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Nette vývojář</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Redesign me a.s.</li>
-                  <li>Moravská 115, Praha</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Vysokoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                   Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-4.png" alt="karta 4">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Správce sítě</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">CO networks</li>
-                  <li>Práčská  1145/5, Praha</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-2.png" alt="karta 2">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Angular 6 vývojář</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Webster s.r.o.</li>
-                  <li>Řevnická 121/1, Praha - Třebonice</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-                </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-3.png" alt="karta 3">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Tester</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Úvěrová banka</li>
-                  <li>Malenská 11 Liberec</li>
-                  <li>Práce na částečný úvazek</li>
-                  <li>Vysokoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-          </div>
+          <!-- offers are appended into carousel by script.js AJAX call -->
+          <div class="card-container mdl-grid owl-carousel" id="carousel-wrap"></div>
 
         </div>
 
@@ -227,61 +134,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
+    <script src="constants/constants.js"></script>
+    <script src="scripts/offers-carousel.js"></script>
+    <script src="scripts/cookie.js"></script>
     <!-- custom -->
     <script src="scripts/jquery.ihavecookies.js"></script>
-    <script>
-      $(document).ready(function(){
-
-        $.get({
-          url: 'php/offers.php',
-          success: function(response) {
-
-            const offers = $.parseJSON(response);
-
-            offers.forEach(function(offer) {
-              console.log(offer);
-            });
-
-          }
-        });
-
-        $(".owl-carousel").owlCarousel({ 'nav': true, 'loop': true, responsive : {
-          // breakpoint from 0 up
-          0: {
-            items: 1
-          },
-
-          700: {
-            items: 2
-          },
-          // breakpoint from 768 up
-          1000: {
-            items: 3
-          }
-        }       
-       });
-      });
-
-      var options = {
-        title: '&#x1F36A; Chcete přijmout cookies a zásady ochrany osobních údajů?',
-        message: 'Cookie jsou použity k zlepšení uživatelské zkušenosti...',
-        delay: 600,
-        expires: 1,
-        link: '#privacy',
-        onAccept: function(){
-            var myPreferences = $.fn.ihavecookies.cookie();
-        },
-        uncheckBoxes: true,
-        acceptBtnLabel: 'Přijmout',
-        moreInfoLabel: 'Více informací',
-        cookieTypesTitle: 'Select which cookies you want to accept',
-        fixedCookieTypeLabel: 'Essential',
-        fixedCookieTypeDesc: 'These are essential for the website to work correctly.'
-      }
-      $(document).ready(function() {
-          $('body').ihavecookies(options);
-      });
-    </script>
 
   </body>
 

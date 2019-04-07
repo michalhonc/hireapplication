@@ -15,7 +15,7 @@ h2 {
   color: #8bc34a;
 }
 
-ul li::before {
+.mdl-card__supporting-text ul li::before {
   content: "\2022";
   color: #8bc34a; 
   font-weight: bold; 
@@ -246,16 +246,15 @@ ul li::before {
 }
 
 .__more_section-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px;
+  display: block;
+  overflow: hidden;
 }
 
   .__more_section-cards .__item {
-    flex-basis: 24%;
+    max-width: 251px;
 
-    margin-bottom: 10px;
+    float: left;
+    margin: 5px;
   }
 
   .more-section .section-title, .more-section-offers .section-title {
@@ -288,6 +287,8 @@ ul li::before {
   .card-container .mdl-card__title-text {
     color: black;
     height: auto;
+
+    font-size: 20px;
   }
 
   .card-container .mdl-card__supporting-text {
@@ -772,7 +773,16 @@ li.active a {
   font-family:
     'Roboto','Helvetica','Arial',sans-serif;
 	position: relative;
-	width: 350px;
+	width: 333px;
+}
+
+/* custom hack */
+#add-form > div > div:nth-child(7) {
+  margin-left: 3px;
+}
+
+#add-form > div > div:nth-child(8) {
+  margin-left: 20px;
 }
 
 .select-text {
@@ -913,3 +923,13 @@ li.active a {
 }
 
 /* add-offer stylings -----------------------------------------------------------------*/
+
+#pagination {
+  float: right;
+
+  margin-top: 24px;
+}
+
+.paginationjs .paginationjs-pages li.active > a {
+  background: #8bc34a !important;
+}

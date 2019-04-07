@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
 
   </head>
 
@@ -86,203 +87,11 @@
         <!-- section -->
         <div id="more" class="more-section-offers">
 
-          <div class="card-container __more_section-cards">
+          <!-- list of offers -->
+          <div class="card-container __more_section-cards" id="offers-list"></div>
 
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-1.png" alt="karta 1">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Nette vývojář</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Redesign me a.s.</li>
-                  <li>Moravská 115, Praha</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Vysokoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-4.png" alt="karta 4">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Správce sítě</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">CO networks</li>
-                  <li>Práčská  1145/5, Praha</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-2.png" alt="karta 2">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Angular 6 vývojář</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Webster s.r.o.</li>
-                  <li>Řevnická 121/1, Praha - Třebonice</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-                </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-3.png" alt="karta 3">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Tester</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Úvěrová banka</li>
-                  <li>Malenská 11 Liberec</li>
-                  <li>Práce na částečný úvazek</li>
-                  <li>Vysokoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-1.png" alt="karta 1">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Ruby on Rails Junior</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Predictables</li>
-                  <li>Jatecká 2/25 Liberec</li>
-                  <li>Práce na částečný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-4.png" alt="karta 4">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Junior C# vývojář</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Developus</li>
-                  <li>Korytná 6 Praha</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-2.png" alt="karta 2">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Consultant</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Preferos</li>
-                  <li>Jihlavská 4 Jihlava</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-3.png" alt="karta 3">
-              </div>
-              <div class="mdl-card__title">
-                  <h4 class="mdl-card__title-text">Analytik</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">CloudApps</li>
-                  <li>Těžírenská 10/1245 Praha</li>
-                  <li>Práce na částečný úvazek</li>
-                  <li>Vysokoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                  <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                    <i class="material-icons">chevron_right</i>
-                  </a>
-              </div>
-            </div>
-
-          </div>
-
-          <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-          </ul>
+          <!--  pagination -->
+          <div id="pagination"></div>
   
         </div>
 
@@ -291,101 +100,8 @@
 
           <div class="section-title mdl-typography--display-1-color-contrast">Nejžhavější pracovní nabídky</div>
 
-          <div class="card-container mdl-grid owl-carousel">
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-1.png" alt="karta 1">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Nette vývojář</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Redesign me a.s.</li>
-                  <li>Moravská 115, Praha</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Vysokoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                   Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-4.png" alt="karta 4">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Správce sítě</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">CO networks</li>
-                  <li>Práčská  1145/5, Praha</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-2.png" alt="karta 2">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Angular 6 vývojář</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Webster s.r.o.</li>
-                  <li>Řevnická 121/1, Praha - Třebonice</li>
-                  <li>Práce na plný úvazek</li>
-                  <li>Středoškolské vzdělání</li>
-                </ul>
-                </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-            <div class="__item mdl-card mdl-shadow--2dp">
-              <div class="mdl-card__media">
-                <img src="images/more-from-3.png" alt="karta 3">
-              </div>
-              <div class="mdl-card__title">
-                 <h4 class="mdl-card__title-text">Tester</h4>
-              </div>
-              <div class="mdl-card__supporting-text">
-                <ul>
-                  <li class="company-name">Úvěrová banka</li>
-                  <li>Malenská 11 Liberec</li>
-                  <li>Práce na částečný úvazek</li>
-                  <li>Vysokoškolské vzdělání</li>
-                </ul>
-              </div>
-              <div class="mdl-card__actions">
-                 <a class="link mdl-button mdl-js-button mdl-typography--text-uppercase" href="offer.php">
-                    Prohlédnout si nabídku
-                   <i class="material-icons">chevron_right</i>
-                 </a>
-              </div>
-            </div>
-
-          </div>
+          <!-- offers are appended into carousel by script.js AJAX call -->
+          <div class="card-container mdl-grid owl-carousel" id="carousel-wrap"></div>
 
         </div>
 
@@ -417,23 +133,13 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.js"></script>
+    <script src="constants/constants.js"></script>
+    <script src="scripts/offers-carousel.js"></script>
+    <script src="scripts/offers-list.js"></script>
+
     <!-- custom -->
     <script>
-      $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({ 'nav': true, 'loop': true, responsive : {
-          0: {
-            items: 1
-          },
-
-          700: {
-            items: 2
-          },
-          1000: {
-            items: 3
-          }
-        }});
-      });
-
       document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.chips');
         var instances = M.Chips.init(elems);

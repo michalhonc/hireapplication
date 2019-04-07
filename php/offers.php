@@ -3,7 +3,7 @@
   include 'db.php';
     
   $sql = 'SELECT * FROM offers';
-  $result = $conn->query($sql);
+  $result = $cnn->query($sql);
 
 
   $dbdata = array();
@@ -12,6 +12,6 @@
     $dbdata[]=$row;
   }
 
-  print_r($dbdata);
+  echo json_encode($dbdata);
 
 ?>

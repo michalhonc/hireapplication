@@ -71,6 +71,11 @@
                                   <input class="mdl-textfield__input" type="text" name="job" required>
                                   <label class="mdl-textfield__label" for="job">Pracovní pozice</label>
                                 </div>
+
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" name="company" required>
+                                  <label class="mdl-textfield__label" for="company">Společnost</label>
+                                </div>
                                 
                                <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                   <input class="mdl-textfield__input" type="text" name="country">
@@ -92,7 +97,7 @@
                                   <label class="mdl-textfield__label" for="postCode">PSČ</label>
                                 </div>
                                 
-                                <div class="select">
+                                <div class="select mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               					          <select class="select-text" name="obligation">
                                     <option value="FULL_TIME">Plný úvazek</option>
                                     <option value="PART_TIME">Částečný úvazek</option>
@@ -102,7 +107,7 @@
               					          <label class="select-label">Typ úvazku</label>
                 				        </div>
                                 
-                                <div class="select">
+                                <div class="select mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                   <select class="select-text" name="education">
                                     <option value="ELEMENTARY">Základní</option>
                                     <option value="SECONDARY">Středoškolské</option>
@@ -116,6 +121,11 @@
                                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                   <input class="mdl-textfield__input" type="text" name="sallary">
                                   <label class="mdl-textfield__label" for="sallary">Mzda</label>
+                                </div>
+
+                                <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="text" name="town">
+                                  <label class="mdl-textfield__label" for="town">Město</label>
                                 </div>
   
                                 <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">

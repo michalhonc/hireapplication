@@ -88,8 +88,9 @@
                     </ul>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
-                <?php
-                    // promene
+
+                  <?php
+                    // promenne
                     $errors = array();
                     $textarea = "";
                     $name = "";
@@ -98,29 +99,23 @@
 
 
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
                       if (empty($_POST["textarea"])) {
                         array_push($errors, "Povinne pole textarea");
                       } else {
                         $textarea = test_input($_POST["textarea"]);
-                        if (!preg_match("/^[a-zA-Z ]*$/",$textarea)) {
-                          array_push($errors, "Only letters and white space allowed");
-                        }
                       }
+
                       if (empty($_POST["name"])) {
                         array_push($errors, "Povinne pole jmeno");
                       } else {
                         $name = test_input($_POST["name"]);
-                        if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-                          array_push($errors, "Only letters and white space allowed");
-                        }
                       }
+
                       if (empty($_POST["surname"])) {
                         array_push($errors, "Povinne pole prijmeni");
                       } else {
                         $surname = test_input($_POST["surname"]);
-                        if (!preg_match("/^[a-zA-Z ]*$/",$surname)) {
-                          array_push($errors, "Only letters and white space allowed");
-                        }
                       }
                       
                       if (empty($_POST["email"])) {
@@ -131,6 +126,37 @@
                           array_push($errors, "Email není validní");
                         }
                       }
+
+                      if (count($errors) > 0) {
+                        echo "<ul>";
+                        for ($i=0; $i < count($errors); $i++) { 
+                          echo "<li style='color: #FF0000'>" . $errors[$i] . "</li>";
+                        }
+                        echo "</ul>";
+                      } else {
+  
+                        // including DB connection
+                        include 'php/db.php';
+  
+                        $sql = "INSERT INTO `messages` (firstname, surname, email, content) VALUES ('$name', '$surname', '$email', '$textarea')";
+  
+                        if ($cnn->query($sql) === TRUE) {                                                                                                                                     
+                          // redirect to detail page with success status
+                          header("Location: contacts.php?status=0");
+                        } else {         
+                          // redirect to add offer form with error status
+                          header("Location: contacts.php?status=1");
+                        }
+                      
+                        $cnn->close();
+                        die();
+  
+                        $textarea = "";
+                        $name = "";
+                        $surname = "";
+                        $email = "";
+                      }
+
                     }
                   
                     function test_input($data) {
@@ -140,65 +166,36 @@
                       return $data;
                     }
 
-                      if (count($errors) > 0) {
-                        echo "<ul>";
-                        for ($i=0; $i < count($errors); $i++) { 
-                          echo "<li style='color: #FF0000'>" . $errors[$i] . "</li>";
-                        }
-                        echo "</ul>";
-                      } else {
-
-                        $sql = "INSERT INTO `offers` (job, country, street, streetNumber, postCode, obligation, education, sallary, content, pictureLink) VALUES ('$job', '$country', '$street', '$streetNumber', '$postCode', '$obligation', '$education', '$sallary', '$content', '$pictureLink')";
-
-                        if ($cnn->query($sql) === TRUE) {                                                                                                                                     
-                          echo "New record created successfully";
-                        } else {
-                          echo "Error: " . $sql . "<br>" . $cnn->error;
-                      
-                          // redirect to add offer form with error status
-                          header("Location: ../offer.php?status=0");
-                        }
-                      
-                        $cnn->close();
-                      
-                        // redirect to detail page with success status
-                        header("Location: ../offer.php?status=0");
-                        die();
-
-                        $textarea = "";
-                        $name = "";
-                        $surname = "";
-                        $email = "";
-                      }
-                    ?>
+                  ?>
                     
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                        <div class="mdl-grid">
+                  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                      <div class="mdl-grid">
 
-                            <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
-                                <textarea class="contact-textarea mdl-textfield__input" type="text" name="textarea" rows= "3" id="textarea"><?php echo $textarea;?></textarea>
-                                <label class="mdl-textfield__label" for="textarea">Napište nám...</label>
-                            </div>
+                          <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                              <textarea class="contact-textarea mdl-textfield__input" type="text" name="textarea" rows= "3" id="textarea"><?php echo $textarea ?></textarea>
+                              <label class="mdl-textfield__label" for="textarea">Napište nám...</label>
+                          </div>
 
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" name="name" value="<?php echo $name;?>">
-                                <label class="mdl-textfield__label" for="name">Jméno...</label>
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="text" name="surname" value="<?php echo $surname;?>">
-                                <label class="mdl-textfield__label" for="surname">Příjmení...</label>
-                            </div>
+                          <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" name="name" value="<?php echo $name;?>">
+                              <label class="mdl-textfield__label" for="name">Jméno...</label>
+                          </div>
+                          <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text" name="surname" value="<?php echo $surname;?>">
+                              <label class="mdl-textfield__label" for="surname">Příjmení...</label>
+                          </div>
 
-                            <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
-                                <input class="mdl-textfield__input" type="text" name="email" value="<?php echo $email;?>">
-                                <label class="mdl-textfield__label" for="email">Email...</label>
-                            </div>
-                            
-                            <input type="submit" class="contact-btn mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-button mdl-js-button mdl-button--raised"
-                            aria-label="odeslat">
-                        </div>
-                    </form>
-            </div>
+                          <div class="mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield">
+                              <input class="mdl-textfield__input" type="text" name="email" value="<?php echo $email;?>">
+                              <label class="mdl-textfield__label" for="email">Email...</label>
+                          </div>
+                          
+                          <input type="submit" class="contact-btn mdl-cell mdl-cell--6-col mdl-cell--12-col-phone mdl-button mdl-js-button mdl-button--raised"
+                          aria-label="odeslat">
+                      </div>
+                  </form>
+
+              </div>
             </div>
         </section>
         
@@ -224,9 +221,35 @@
 
       </div>
     </div>
+
+    <div id="status">
+      <span id="status-text">Vaše zpráva byla odeslána zákaznické podpoře.</span>
+    </div>
     
     <!-- js -->
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- handles status div -->
+    <script>
+      $(function() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has('status') && urlParams.get('status') == 0) {
+          $('#status').slideDown();
+        }
+
+        // wait 5 second then hide status bar
+        setTimeout(
+          function() {
+            $('#status').slideUp();
+          },
+          5000
+        );
+
+      });
+    </script>
+
   </body>
 
 </html>

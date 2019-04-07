@@ -231,6 +231,20 @@
     <script src="scripts/jquery.ihavecookies.js"></script>
     <script>
       $(document).ready(function(){
+
+        $.get({
+          url: 'php/offers.php',
+          success: function(response) {
+
+            const offers = $.parseJSON(response);
+
+            offers.forEach(function(offer) {
+              console.log(offer);
+            });
+
+          }
+        });
+
         $(".owl-carousel").owlCarousel({ 'nav': true, 'loop': true, responsive : {
           // breakpoint from 0 up
           0: {

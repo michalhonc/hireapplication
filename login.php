@@ -43,9 +43,14 @@
 
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
 
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>
-
-              <a class="menu_item-selected mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>
+              <?php
+                if($_SESSION['login']!=""){
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>'
+                    . '<a class="mdl-navigation__link mdl-typography--text-uppercase" href="./php/logout.php">Odhlásit se</a>';
+                } else {
+                  echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
+                }
+              ?>
 
             </nav>
           </div>
@@ -78,43 +83,19 @@
             <div class="mdl-cell mdl-cell--6-col mdl-cell--10-col-phone mdl-card mdl-shadow--3dp">
  
               <div class="form">
-                <form class="register-form">
-                  <input type="text" placeholder="Přihlašovací jméno"/>
-                  <input type="password" placeholder="Heslo"/>
-                  <input type="text" placeholder="Email"/>
+                <form class="register-form" action="php/register.php"  method="post">
+                  <input name="login" type="text" placeholder="Přihlašovací jméno"/>
+                  <input name="password" type="password" placeholder="Heslo"/>
                   <button aria-label="Vytvorit">Vytvořit</button>
                   <p class="message">Už máte účet? <a href="#">Přihlásit se</a></p>
                 </form>
-                <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <form class="login-form" action="php/login.php" method="post">
                   <input name="login" type="text" placeholder="Přihlašovací jméno"/>
                   <input name="password" type="password" placeholder="Heslo"/>
                   <button aria-label="prihlasit">Přihlásit</button>
                   <p class="message">Nejste registrováni? <a href="#">Vytvořit účet</a></p>
                 </form>
               </div>
-              <?php
-              // TODO: XSS
-                // include "./connect.php";
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                  $login = $_POST["login"];
-                  $password = $_POST["password"];
-                  $md5password = md5($password);
-                  // $dotaz = mysql_query("select * from uzivatele where login = '$login' and password = '$md5password'");
-                  // $overeni = mysql_num_rows($dotaz);
-                  // $row = mysql_fetch_array($dotaz);
-                  // if($overeni == 1) {
-                  if($login === "admin" && $password === "admin") {
-                    session_start();
-                    $_SESSION['login'] = stripslashes($login); 
-                    // $_SESSION['id'] = $row["id"];
-                    $_SESSION['id'] = $login;
-                    header("Location: admin.php");
-                    die();
-                  } else {
-                    echo "Pal do piče!";
-                  }
-                }
-              ?>
 
             </div>
 

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if($_SESSION['login']==true){
+    if(!$_SESSION['login']){
         header("location: index.php");
     }
 ?>
@@ -46,9 +46,14 @@
   
                       <a class="mdl-navigation__link mdl-typography--text-uppercase" href="contacts.php">Kontakt</a>
 
-                      <a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>
-                      
-                      <a class="mdl-navigation__link mdl-typography--text-uppercase" href="php/logout.php">Odhlásit se</a>
+                      <?php
+                        if($_SESSION['login']!=""){
+                          echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="add-offer.php">Přidat nabídku</a>'
+                            . '<a class="mdl-navigation__link mdl-typography--text-uppercase" href="./php/logout.php">Odhlásit se</a>';
+                        } else {
+                          echo'<a class="mdl-navigation__link mdl-typography--text-uppercase" href="login.php">Přihlásit se</a>';
+                        }
+                      ?>
                       </nav>
                   </div>
                 </div>
